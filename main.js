@@ -26,16 +26,16 @@ function display_data(data) {
   //display data
 
   quote.innerHTML = quotation;
-  cat.innerHTML = category;
-  aut.innerHTML = author;
+  cat.innerHTML ="Categorie : "+ category;
+  aut.innerHTML =" Auteur : "+ author;
 }
 
 // //chargement automatique apres 3s
-setInterval(() => {
+// setInterval(() => {
   fetch(request)
     .then((response) => response.json())
     .then((data) => {
       console.log(data[0]);
       display_data(data);
     });
-}, 5000);
+// }, 55000);
