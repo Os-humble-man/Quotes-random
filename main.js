@@ -31,11 +31,11 @@ function display_data(data) {
 }
 
 // //chargement automatique apres 3s
-// setInterval(() => {
+setInterval(() => {
   fetch(request)
     .then((response) => response.json())
     .then((data) => {
       console.log(data[0]);
       display_data(data);
     });
-// }, 55000);
+}, 55000);
