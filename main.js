@@ -12,9 +12,7 @@ const request = new Request(url, {
   cache: "default",
 });
 
-//selection des elements html
-let btn = document.getElementById("btn");
-
+let container = document.querySelector(".container");
 let quote = document.getElementById("quote");
 let cat = document.getElementById("cat");
 let aut = document.getElementById("aut");
@@ -23,19 +21,24 @@ function display_data(data) {
   const category = data[0].category;
   const author = data[0].author;
 
-  //display data
+  //   //display data
 
   quote.innerHTML = quotation;
-  cat.innerHTML ="Categorie : "+ category;
-  aut.innerHTML =" Auteur : "+ author;
+  cat.innerHTML = "Categorie : " + category;
+  aut.innerHTML = " Auteur : " + author;
 }
 
-// //chargement automatique apres 3s
+// //chargement automatique apres 10s
 setInterval(() => {
   fetch(request)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data[0]);
       display_data(data);
     });
-}, 55000);
+}, 10000);
+
+setInterval(() => {
+  fetch("https://source.unsplash.com/1600x900/?computer").then((res) => {
+    container.style.background = "url(" + res.url;
+  });
+}, 12000);
